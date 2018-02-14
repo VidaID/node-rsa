@@ -230,7 +230,7 @@ module.exports.Key = (function () {
         }
 
         for (var i = 0; i < buffers.length; i++) {
-            results.push(this.encryptEngine.encrypt(buffers[i], usePrivate));
+            results.push(Buffer.from(this.encryptEngine.encrypt(buffers[i], usePrivate)));
         }
 
         return Buffer.concat(results);
