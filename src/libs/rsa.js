@@ -254,7 +254,7 @@ module.exports.Key = (function () {
         for (var i = 0; i < buffersCount; i++) {
             offset = i * this.encryptedDataLength;
             length = offset + this.encryptedDataLength;
-            result.push(this.encryptEngine.decrypt(buffer.slice(offset, Math.min(length, buffer.length)), usePublic));
+            result.push(Buffer.from(this.encryptEngine.decrypt(buffer.slice(offset, Math.min(length, buffer.length)), usePublic)));
         }
 
         return Buffer.concat(result);
